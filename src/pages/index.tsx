@@ -14,6 +14,7 @@ const ResponseSchema = z.object({
   results: z.array(
     z.object({
       inscriptionnumber: z.string().nullable(),
+      inscriptionid: z.string().nullable(),
     })
   ),
 });
@@ -151,7 +152,14 @@ const Home: NextPage = () => {
                     {response.results.map((r, i) => {
                       return (
                         <div className="" key={i}>
-                          {r.inscriptionnumber}
+                          <a
+                            href={`https://ordinals.com/inscription/${r.inscriptionid}`}
+                            ref="nonreferrer"
+                            target="_blank"
+                            className="hover:underline"
+                          >
+                            {r.inscriptionnumber}
+                          </a>
                         </div>
                       );
                     })}
@@ -164,8 +172,8 @@ const Home: NextPage = () => {
               <h3 className="text-xl font-bold">Format</h3>
               <div className="text-sm">
                 Usernames follow the twitter conventions of allowing
-                alphanumeric characters and underscores (_). For comparision
-                sake, all names are hashed all all lowercase.
+                alphanumeric characters and underscores (_). For the hash
+                comparision, all names are hashed as all lowercase.
               </div>
             </div>
           </div>
