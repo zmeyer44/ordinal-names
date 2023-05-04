@@ -155,7 +155,7 @@ const Home: NextPage = () => {
                           <div className="" key={i}>
                             <a
                               href={`https://ordinals.com/inscription/${r.inscriptionid}`}
-                              ref="nonreferrer"
+                              rel="nonreferrer"
                               target="_blank"
                               className="hover:underline"
                             >
