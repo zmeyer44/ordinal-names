@@ -63,6 +63,14 @@ const Home: NextPage = () => {
       setLoading(false);
     }
   };
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      if (input) {
+        void handleSearch();
+      }
+    }
+  };
 
   return (
     <>
@@ -98,6 +106,7 @@ const Home: NextPage = () => {
                     className="block w-full rounded-md border-0 border-red-300 bg-indigo-800/80 py-3.5 pl-10 pr-10 text-lg text-indigo-200 outline-none ring-1 ring-inset ring-[hsl(290,60%,50%)] placeholder:text-indigo-400 focus:ring-2 focus:ring-inset focus:ring-[hsl(290,60%,40%)] sm:py-5 sm:text-xl sm:leading-6"
                     placeholder="username"
                     onChange={(e) => handleChange(e)}
+                    onKeyDown={handleKeyDown}
                     value={input}
                   />
                 </div>
