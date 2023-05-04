@@ -150,18 +150,20 @@ const Home: NextPage = () => {
 
                   <div className="text-sm">
                     {response.results.map((r, i) => {
-                      return (
-                        <div className="" key={i}>
-                          <a
-                            href={`https://ordinals.com/inscription/${r.inscriptionid}`}
-                            ref="nonreferrer"
-                            target="_blank"
-                            className="hover:underline"
-                          >
-                            {r.inscriptionnumber}
-                          </a>
-                        </div>
-                      );
+                      if (r.inscriptionid) {
+                        return (
+                          <div className="" key={i}>
+                            <a
+                              href={`https://ordinals.com/inscription/${r.inscriptionid}`}
+                              ref="nonreferrer"
+                              target="_blank"
+                              className="hover:underline"
+                            >
+                              {r.inscriptionnumber}
+                            </a>
+                          </div>
+                        );
+                      }
                     })}
                   </div>
                 </div>
